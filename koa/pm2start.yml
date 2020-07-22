@@ -1,0 +1,5 @@
+apps:
+  - script: ./app.js  #程序启动文件
+    name: koa0    #启动服务名（自定义）
+    env_production:   #生产环境
+      NODE_ENV: production
