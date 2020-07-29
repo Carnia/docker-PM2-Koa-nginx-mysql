@@ -147,7 +147,10 @@ server {
     }
 }
 ```
-所以宿主机当前目录的`web`文件夹就是静态网页的存放目录，可以实时更改里面的内容。
+所以宿主机当前目录的`web`文件夹就是静态网页的存放目录，可以实时更改里面的内容。等同：
+```sh
+docker run -p 80:80 --name nginx -v $(pwd)/conf/nginx.conf/:/etc/nginx/conf.d/ -v $(pwd)/web-dist/:/app/ -d nginx:alpine
+```
 
 到这里基本上已经结束，可以正常运行PM2守护的koa项目和静态网页，并且是通过docker容器化后的nginx代理的。
 
